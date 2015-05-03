@@ -1,0 +1,35 @@
+table {
+  border: 1px solid $grey-color;
+  border-collapse: collapse;
+
+  tbody tr:nth-child(even), thead tr {
+    background-color: darken($grey-color-light, 10%);
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: darken($grey-color-light, 20%);
+  }
+
+  th, td {
+    border: 1px solid $grey-color-dark;
+    padding: 2px 5px 2px 5px;
+  }
+
+}
+
+blockquote.q {
+    color: $grey-color-dark;
+    border: 2px solid $grey-color;
+    padding-left: $spacing-unit / 2;
+    font-size: 90%;
+    letter-spacing: 0px;
+    font-style: normal;
+    margin-left: 1.5 * $spacing-unit;
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    code {
+      font-size: 85%;
+    }
+}
