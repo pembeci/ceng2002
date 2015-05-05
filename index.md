@@ -315,8 +315,8 @@ print(f(5,3,4,1,2))  # 50 = 4*5 + 1*(5+3) + 2*(5+3+3)
   - Return them from functions
   - Construct a list of functions or use them as values in objects  
 
-  {:.q}
-  > Q: What will be the output of the following Javascript code code:
+{:.q}
+> Q: What will be the output of the following Javascript code:
 >
 > {% highlight javascript %}
 var x = 30;
@@ -340,6 +340,36 @@ for (i=0; i<funcs.length; i++) {
 {% endhighlight %}
 
 * Closures
+
+  Let's suppose that some function (let's call it outer) defines a function (inner)
+  and then returns it. If the inner function references a local variable in outer function
+  then those variables should't be destroyed as what normally happens. If they were destroyed,
+  when the returned inner function is called its code will not be able to use them.
+  So for such cases those local variables are kept (as a closure of the inner function)
+  but they are only available to the inner function.
+
+{:.q}
+> Q: What will be the output of the following Javascript code:
+>
+> {% highlight javascript %}
+function outer(start) {
+  var end = 20;
+  var inner = function() {
+    start++;
+    end--;
+    console.log("start=" +start + " end=" +end);
+  }
+  return inner;
+}  
+                                                    //
+var f1 = outer(5)
+f1();f1();f1()
+var f2 = outer(1)
+f2();f2();
+f1();
+f2();
+{% endhighlight %}
+
 * Higher Order Functions (map, filter, reduce, sort)
 
 ## Miscellanous
