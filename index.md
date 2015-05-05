@@ -84,7 +84,7 @@ console.log(s+a);
 {:.q}
 > Q: Give two different values for `a` such that either the `if` part or `else` part will be executed. Explain shortly
 how the code runs in both cases.
-> {% highlight javascript linenos %}
+> {% highlight javascript %}
 var a = ...
 var first = a && a[0]
 if (first) console.log(first)
@@ -96,7 +96,7 @@ else console.log("array is empty")
 {:.q}
 > Q: For boolean expressions, Python and Javascript use lazy evaluation (or sometimes called short circuting in this context). See this [discussion](http://stackoverflow.com/questions/13960657/does-python-evaluate-ifs-conditions-lazily). Give the value of `a` after each line in the following Python code:
 >
-> {% highlight python linenos %}
+> {% highlight python linenos%}
 a = 5 or (1/0)                       # a is now ...
 a = (0 or "abc") and (0 or "")       # a is now ...
 a = (0 or "") and (0 or "abc")       # a is now ...
@@ -111,7 +111,7 @@ a = [] or (5 and [1,2]) or "xyz"     # a is now ...
 {:.q}
 > Q: Give the console output of the following code snippet. Recall that, in Javascript `var` keyword creates a new local variable in the current scope:
 >
-> {% highlight javascript linenos %}
+> {% highlight javascript %}
 var x=1, y=2, z=3;
 
 function f() {
@@ -157,7 +157,7 @@ console.log("global", x, y, z)
 {:.q}
 > Q: Give the values of each local variable in function `f` at the end of its execution (i.e. the output of the print statements at the end):
 >
-> {% highlight python linenos %}
+> {% highlight python %}
 def f():
   a = [ 3, {'x':3, 'y':4}, [1,2,3], (10,20), "xyz" ]
   b = a
@@ -179,7 +179,7 @@ f()
 {:.q}
 > Q: What will be the output of the following code:
 >
-> {% highlight python linenos %}
+> {% highlight python %}
 a = [1,2,3]
 b = a
 c = [1,2,3]
@@ -197,7 +197,7 @@ print(a is b)
 {:.q}
 > Q: What will be the output of the following code:
 >
-> {% highlight js linenos %}
+> {% highlight javascript %}
 a = [1,2]
 b = [1,2]
 c = a
@@ -213,7 +213,61 @@ console.log(d.x == e.x)
 ## Functions
 
 * Argument Passsing
+
+{:.q}
+> Q: What will be the value of global variables `x1,x2,x3,x4,x5` at the end of
+this code (i.e. after call to `f` returns):
+>
+> {% highlight javascript %}
+function g(a40, a41, a,b,d,e) {
+    a40.push(50);
+    a41 += "ghi"
+    a *= 10
+    b.c *= 10
+    b.f += "ghi"
+    d.push(50);
+    e += "ghi"
+}
+function f(a1,a2,a3,a4,a5) {
+    a1 *= 10;
+    a2 += "def";
+    a3.push(40);
+    a4[0].push(40);
+    a4[1] += "def";
+    a5.a *= 10;
+    a5.b.c *= 10;
+    a5.b.f += "def";
+    a5.d.push(40);
+    a5.e += "def";  
+    g(a4[0],a4[1],a5.a, a5.b, a5.d, a5.e)
+}
+var x1 = 1
+var x2 = "abc"
+var x3 = [1,2,3]
+var x4 = [ [1,2,3], "abc" ]
+var x5 = { 'a':1, 'b': {'c': 2, 'f':"abc"}, 'd': [1,2,3], 'e': "abc"}
+f(x1,x2,x3,x4,x5);
+// print the values of x1,x2,x3,x4,x5 at this point
+{% endhighlight %}
+
 * Default arguments
+
+{:.q}
+> Q: What will be the output of the following JS code:
+>
+> {% highlight javascript %}
+function f(a,b,c,d) {
+    if (b == undefined) b = 5;
+    c = c || 10;
+    d = d || 20;
+    console.log([a,b,c,d]);
+}
+f(1)
+f(1,2)
+f(1,2,3,4)
+f(0,0,0,0)
+{% endhighlight %}
+
 * Python \*args, \*\*kargs
 * First class values
 * Closures
@@ -225,5 +279,3 @@ console.log(d.x == e.x)
 * Tuples in Python (immutable)
 * for (key in obj1)
 * cloning in Java?
-
-
