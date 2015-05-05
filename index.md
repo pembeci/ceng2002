@@ -398,8 +398,10 @@ teams
     else return t2.name.length - t1.name.length;
   })
   .forEach(function(t) {
+    t.flag = true;  // will this affect teams[4] output below?
     console.log(t.name + ": " + t.points + "-" + t.played);
   })
+console.log(teams[4]);
 {% endhighlight %}  
 
 {:.q}
@@ -416,3 +418,5 @@ var result = nums.reduce(function(accumulated, nextValue) {
 )
 console.log(result);
 {% endhighlight %}  
+
+### That's all folks. See you at the midterm... 
