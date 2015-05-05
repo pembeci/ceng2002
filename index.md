@@ -159,8 +159,8 @@ console.log("global", x, y, z)
 >
 > {% highlight python %}
 def f():
-a = [ 3, {'x':3, 'y':4}, [1,2,3], (10,20), "xyz" ]
-b = a
+    a = [ 3, {'x':3, 'y':4}, [1,2,3], (10,20), "xyz" ]
+    b = a
     c = b[:]              # shallow copy
     (a0,a1,a2,a3,a4) = a  # equivalent of a0=a[0], a1=a[1] ... a4=a[4]
     a5 = a[2][:]
@@ -171,7 +171,7 @@ b = a
     a[0] = 50
     a3 = "world"
     for (k,v) in locals().items():
-    print("{0} = {1}".format(k,v))
+        print("{0} = {1}".format(k,v))
     #
 f()
 {% endhighlight %}
@@ -238,7 +238,7 @@ function f(a1,a2,a3,a4,a5) {
     a5.b.c *= 10;
     a5.b.f += "def";
     a5.d.push(40);
-    a5.e += "def";  
+    a5.e += "def";
     g(a4[0],a4[1],a5.a, a5.b, a5.d, a5.e)
 }
 var x1 = 1
@@ -313,7 +313,7 @@ print(f(5,3,4,1,2))  # 50 = 4*5 + 1*(5+3) + 2*(5+3+3)
   - Store them in variables: `var f = function(){}`
   - Pass them to other functions as arguments
   - Return them from functions
-  - Construct a list of functions or use them as values in objects  
+  - Construct a list of functions or use them as values in objects
 
 {:.q}
 > Q: What will be the output of the following Javascript code:
@@ -360,7 +360,7 @@ function outer(start) {
     console.log("start=" +start + " end=" +end);
   }
   return inner;
-}  
+}
                                                     //
 var f1 = outer(5)
 f1();f1();f1()
@@ -402,7 +402,7 @@ teams
     console.log(t.name + ": " + t.points + "-" + t.played);
   })
 console.log(teams[4]);
-{% endhighlight %}  
+{% endhighlight %}
 
 {:.q}
 > Q: Give the output of the following Javascript code (i.e. result's final value):
@@ -417,6 +417,6 @@ var result = nums.reduce(function(accumulated, nextValue) {
   [ [], [] ]  // initial value for accumulated
 )
 console.log(result);
-{% endhighlight %}  
+{% endhighlight %}
 
 ### That's all folks. See you at the midterm...
