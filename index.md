@@ -113,7 +113,7 @@ a = [] or (5 and [1,2]) or "xyz"     # a is now ...
 >
 > {% highlight javascript %}
 var x=1, y=2, z=3;
-
+                                                       //
 function f() {
   var y = 4;
   z = 5;
@@ -123,7 +123,7 @@ function f() {
   h(11,12);
   console.log("f3", x, y, z)
 }
-
+                                                       //
 function g(a,b) {
   var x = 6;
   console.log("g1", x, y, z);
@@ -136,14 +136,14 @@ function g(a,b) {
   h(y,z);
   console.log("g2", x, y, z);
 }
-
+                                                       //
 function h(y,z) {
     console.log("h3", x, y, z);
     x = 9;
     z = 10;
     console.log("h4", x, y, z);
 }
-
+                                                       //
 console.log("global", x, y, z)
 f()
 console.log("global", x, y, z)
@@ -159,20 +159,20 @@ console.log("global", x, y, z)
 >
 > {% highlight python %}
 def f():
-  a = [ 3, {'x':3, 'y':4}, [1,2,3], (10,20), "xyz" ]
-  b = a
-  c = b[:]              # shallow copy
-  (a0,a1,a2,a3,a4) = a  # equivalent of a0=a[0], a1=a[1] ... a4=a[4]
-  a5 = a[2][:]
-  a2.append("new")
-  c[0] = 30
-  c[1]['x'] = 40
-  a[4] = "hello"
-  a[0] = 50
-  a3 = "world"
-  for (k,v) in locals().items():
+a = [ 3, {'x':3, 'y':4}, [1,2,3], (10,20), "xyz" ]
+b = a
+    c = b[:]              # shallow copy
+    (a0,a1,a2,a3,a4) = a  # equivalent of a0=a[0], a1=a[1] ... a4=a[4]
+    a5 = a[2][:]
+    a2.append("new")
+    c[0] = 30
+    c[1]['x'] = 40
+    a[4] = "hello"
+    a[0] = 50
+    a3 = "world"
+    for (k,v) in locals().items():
     print("{0} = {1}".format(k,v))
-
+    #
 f()
 {% endhighlight %}
 
@@ -292,7 +292,7 @@ that in Javascript arguments array includes all the arguments passed (i.e. will 
 `k` at index 0 and `inc` at index 1 if you include them in function parameters). In Java,
 you can pass variable length arguments as an array as well:
 [example1](http://www.deitel.com/articles/java_tutorials/20060106/VariableLengthArgumentLists.html),
-[example2](http://viralpatel.net/blogs/varargs-in-java-variable-argument-method-in-java-5/). 
+[example2](http://viralpatel.net/blogs/varargs-in-java-variable-argument-method-in-java-5/).
 >
 > {% highlight python %}
 def f(k, inc, *args):
@@ -305,7 +305,40 @@ def f(k, inc, *args):
 print(f(5,3,4,1,2))  # 50 = 4*5 + 1*(5+3) + 2*(5+3+3)
 {% endhighlight %}
 
-* First class values
+* Functions as first class values
+
+  If functions are first class values in a PL you can do use them as other value types like integer.
+  For instance:
+
+  - Store them in variables: `var f = function(){}`
+  - Pass them to other functions as arguments
+  - Return them from functions
+  - Construct a list of functions or use them as values in objects  
+
+  {:.q}
+  > Q: What will be the output of the following Javascript code code:
+>
+> {% highlight javascript %}
+var x = 30;
+function f1(a) {
+    return a+10;
+}
+var f2 = function (b) {
+    return b+x;
+}
+function f3(a,b) {
+    return function(x) {
+        return x+a+b;
+    }
+}
+funcs = [function(c) {return c+20}, f1, f3(3,4), f2]
+var f4 = funcs[0];
+funcs.push(f4);
+for (i=0; i<funcs.length; i++) {
+    console.log(funcs[i](3))
+}
+{% endhighlight %}
+
 * Closures
 * Higher Order Functions (map, filter, reduce, sort)
 
