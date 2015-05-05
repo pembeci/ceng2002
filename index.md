@@ -269,6 +269,42 @@ f(0,0,0,0)
 {% endhighlight %}
 
 * Python \*args, \*\*kargs
+
+{:.q}
+> Q: What will be the output of the following Python code:
+>
+> {% highlight python %}
+def f(a, b=10, c=20, *args, **kargs):
+    d = args[2] if len(args)>2 else 40
+    # if key "x" exists in kargs dict returns its value (kargs["x"]), otherwise returns default value 40
+    e = kargs.get("x",50)
+    print("a={}, b={}, c={}, d={}, e={}".format(a,b,c,d,e))
+    #
+f(1,2)
+f(1,2,3,4)
+f(1,2,3,4,5,x="x")
+f(1,2,3,4,5,6,7)
+{% endhighlight %}
+
+{:.q}
+> Q: Write the equivalent of the following Python function in Java and Javascript. Note
+that in Javascript arguments array includes all the arguments passed (i.e. will include
+`k` at index 0 and `inc` at index 1 if you include them in function parameters). In Java,
+you can pass variable length arguments as an array as well:
+[example1](http://www.deitel.com/articles/java_tutorials/20060106/VariableLengthArgumentLists.html),
+[example2](http://viralpatel.net/blogs/varargs-in-java-variable-argument-method-in-java-5/). 
+>
+> {% highlight python %}
+def f(k, inc, *args):
+    sum = 0
+    for num in args:
+    sum += num * k
+    k += inc
+    return sum
+    #
+print(f(5,3,4,1,2))  # 50 = 4*5 + 1*(5+3) + 2*(5+3+3)
+{% endhighlight %}
+
 * First class values
 * Closures
 * Higher Order Functions (map, filter, reduce, sort)
