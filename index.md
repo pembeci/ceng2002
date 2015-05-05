@@ -372,9 +372,47 @@ f2();
 
 * Higher Order Functions (map, filter, reduce, sort)
 
-## Miscellanous
+{:.q}
+> Q: Give the output of the following Javascript code and write the corresponding code
+in Python.
+>
+> {% highlight javascript %}
+var teams = [
+  { name: "HataySpor", "wins": 3, "draws": 2, "losses": 1},
+  { name: "HataySporrr", "wins": 3, "draws": 2, "losses": 1},
+  { name: "Karabük", "wins": 4, "draws": 0, "losses": 1},
+  { name: "Muğlaspor", "wins": 7, "draws": 1, "losses": 0},
+  { name: "UlaGücü", "wins": 1, "draws": 3, "losses": 0},
+  { name: "Kötekli", "wins": 1, "draws": 7, "losses": 0},
+  { name: "Dalaman", "wins": 2, "draws": 0, "losses": 2}
+]
+teams.map(function(t) {
+   t.points = 2*t.wins+t.draws;
+   t.played=t.wins+t.draws+t.losses
+})
+teams
+  .filter(function(t) { return t.played >= 5;})
+  .sort(function (t1,t2) {
+    if (t1.points != t2.points) return t2.points - t1.points;
+    else if (t1.played != t2.played) return t1.played - t2.played;
+    else return t2.name.length - t1.name.length;
+  })
+  .forEach(function(t) {
+    console.log(t.name + ": " + t.points + "-" + t.played);
+  })
+{% endhighlight %}  
 
-* List generators
-* Tuples in Python (immutable)
-* for (key in obj1)
-* cloning in Java?
+{:.q}
+> Q: Give the output of the following Javascript code (i.e. result's final value):
+>
+> {% highlight javascript %}
+var nums = [3,7,2,6,11,4,9,4,1,3]
+var result = nums.reduce(function(accumulated, nextValue) {
+     if (nextValue % 2 == 0) accumulated[0].push(nextValue);
+     else accumulated[1].push(nextValue);
+     return accumulated;
+  },
+  [ [], [] ]  // initial value for accumulated
+)
+console.log(result);
+{% endhighlight %}  
