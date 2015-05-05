@@ -298,8 +298,8 @@ you can pass variable length arguments as an array as well:
 def f(k, inc, *args):
     sum = 0
     for num in args:
-    sum += num * k
-    k += inc
+        sum += num * k
+        k += inc
     return sum
     #
 print(f(5,3,4,1,2))  # 50 = 4*5 + 1*(5+3) + 2*(5+3+3)
@@ -419,4 +419,4 @@ var result = nums.reduce(function(accumulated, nextValue) {
 console.log(result);
 {% endhighlight %}  
 
-### That's all folks. See you at the midterm... 
+### That's all folks. See you at the midterm...
