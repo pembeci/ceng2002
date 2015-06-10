@@ -1,6 +1,16 @@
 ---
 layout: default
 ---
+# Final Announcement
+Most probably, the grade distribution of the final questions will be something like:
+
+  * %30: Classes in Java, Python, Javascript. Additionally, look at function argument topics (default argument values, variable length of arguments) since you'll need those to merge multiple Java functions (constructors) with the same name into just one function  in Python and Javascript.
+
+  * %50: Haskell.
+
+  * %20-30: Questions from Midterm that were not very well solved/understood. You can find the questions and some of the code [here](ceng2002mid.zip). Especially take a look at questions 3 (closures), 4 (reduce function) and 5 (call by value/reference).
+
+
 # Final Examples
 
 ## Classes
@@ -137,11 +147,11 @@ result5 = map (\f -> f 10) (map (\ (x,y) -> c x y) (zip [1,2,10] [4,5,4]))
 (see the related book [section](http://learnyouahaskell.com/recursion#quick-sort) if you don't get how it works):
 >
 > {% highlight haskell %}
-quicksort :: (Ord a) => [a] -> [a]  
-quicksort [] = []  
+quicksort :: (Ord a) => [a] -> [a]
+quicksort [] = []
 quicksort (x:xs) =
-    let smallerSorted = quicksort [a | a <- xs, a <= x]  
-        biggerSorted = quicksort [a | a <- xs, a > x]  
+    let smallerSorted = quicksort [a | a <- xs, a <= x]
+        biggerSorted = quicksort [a | a <- xs, a > x]
     in  smallerSorted ++ [x] ++ biggerSorted
 {% endhighlight %}
 
