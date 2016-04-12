@@ -14,7 +14,7 @@ public class User implements Cloneable {
   }
   
   
-   protected Object clone() throws CloneNotSupportedException {
+  protected Object clone() throws CloneNotSupportedException {
       User cloned = (User) super.clone();
       cloned.dept = (Department) this.dept.clone();
       return cloned;

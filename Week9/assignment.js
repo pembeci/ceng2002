@@ -33,7 +33,8 @@ hoca14 = { "id": 157, "name": "Tuğba Süzek", "title": "Yrd.Doç.Dr." };
 hoca27 = { "id": 187, "name": "Barış Süzek", "title": "Yrd.Doç.Dr." };
 
 cengDepartment = { "id": 2028, "name": "Computer Engineering", "code": "CENG",
-               "address": "Müh. Fak. Kötekli ...", "faculty": [hoca12, hoca14, hoca27]
+               "address": "Müh. Fak. Kötekli ...", 
+               "faculty": [hoca12, hoca14, hoca27]
              };  
 b = { id:3, name: "ali", phones: [1234, 5678, 35], dept: cengDepartment }
 // a = cloneUser(b);
