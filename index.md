@@ -4,6 +4,8 @@ layout: default
 
 # Midterm Examples
 
+These are the same examples from last year (see links at top right) but truncated to reflect what we were able to cover this 2016 semester. You can expect 70-85% of the exam points dedicated to these code-based questions. For the remaining points, check [the midterm from two years ago](midterm.pdf) which contains questions based on the slides Tuğba Hoca covered before I took over. If I'm not mistaken she covered until the "Bindings and Scope" chapter so there may be some parts in that exam which you will not be responsible. You may find her slides [here](http://eng1.mu.edu.tr/~tugba/PL/).
+
 ## Expressions
 
 * Operator [precedence](en.wikipedia.org/wiki/Order_of_operations) and [associativity](http://en.wikipedia.org/wiki/Operator_associativity)
@@ -80,9 +82,6 @@ console.log(s+a);
 {% endhighlight %}
 
 {:.q}
-> Q: Give values for variables `a` and `b` such that in JS `a == b` is `true` but `a === b` is `false`.
-
-{:.q}
 > Q: Give two different values for `a` such that either the `if` part or `else` part will be executed. Explain shortly
 how the code runs in both cases.
 > {% highlight javascript %}
@@ -105,53 +104,6 @@ a = ("" or []) and ("abc" or 0)      # a is now ...
 a = 0 or "abc" or [1,2]              # a is now ...
 a = [] or (5 and [1,2]) or "xyz"     # a is now ...
 {% endhighlight %}
-
-
-## Scope
-
-{:.q}
-> Q: Give the console output of the following code snippet. Recall that, in Javascript `var` keyword creates a new local variable in the current scope:
->
-> {% highlight javascript %}
-var x=1, y=2, z=3;
-                                                       //
-function f() {
-  var y = 4;
-  z = 5;
-  console.log("f1", x, y, z)
-  g(x,y)
-  console.log("f2", x, y, z)
-  h(11,12);
-  console.log("f3", x, y, z)
-}
-                                                       //
-function g(a,b) {
-  var x = 6;
-  console.log("g1", x, y, z);
-  function h(y,z) {
-    console.log("h1", x, y, z);
-    x = 7;
-    z = 8;
-    console.log("h2", x, y, z);
-  }
-  h(y,z);
-  console.log("g2", x, y, z);
-}
-                                                       //
-function h(y,z) {
-    console.log("h3", x, y, z);
-    x = 9;
-    z = 10;
-    console.log("h4", x, y, z);
-}
-                                                       //
-console.log("global", x, y, z)
-f()
-console.log("global", x, y, z)
-{% endhighlight %}
-
-{:.q}
-> Q: Try to achieve the same output of the previous question by writing an equivalent code in Python. Note that, unlike Javascript, in Python global variables are not automatically accessable in local scopes. You need to use the `global` keyword to make them available.
 
 ## Assignment Semantics
 
@@ -305,119 +257,5 @@ def f(k, inc, *args):
     #
 print(f(5,3,4,1,2))  # 50 = 4*5 + 1*(5+3) + 2*(5+3+3)
 {% endhighlight %}
-
-* Functions as first class values
-
-  If functions are first class values in a PL you can do use them as other value types like integer.
-  For instance:
-
-  - Store them in variables: `var f = function(){}`
-  - Pass them to other functions as arguments
-  - Return them from functions
-  - Construct a list of functions or use them as values in objects  
-
-{:.q}
-> Q: What will be the output of the following Javascript code:
->
-> {% highlight javascript %}
-var x = 30;
-function f1(a) {
-    return a+10;
-}
-var f2 = function (b) {
-    return b+x;
-}
-function f3(a,b) {
-    return function(x) {
-        return x+a+b;
-    }
-}
-funcs = [function(c) {return c+20}, f1, f3(3,4), f2]
-var f4 = funcs[0];
-funcs.push(f4);
-for (i=0; i<funcs.length; i++) {
-    console.log(funcs[i](3))
-}
-{% endhighlight %}
-
-* Closures
-
-  Let's suppose that some function (let's call it outer) defines a function (inner)
-  and then returns it. If the inner function references a local variable in outer function
-  then those variables should't be destroyed as what normally happens. If they were destroyed,
-  when the returned inner function is called its code will not be able to use them.
-  So for such cases those local variables are kept (as a closure of the inner function)
-  but they are only available to the inner function.
-
-{:.q}
-> Q: What will be the output of the following Javascript code:
->
-> {% highlight javascript %}
-function outer(start) {
-  var end = 20;
-  var inner = function() {
-    start++;
-    end--;
-    console.log("start=" +start + " end=" +end);
-  }
-  return inner;
-}  
-                                                    //
-var f1 = outer(5)
-f1();f1();f1()
-var f2 = outer(1)
-f2();f2();
-f1();
-f2();
-{% endhighlight %}
-
-* Higher Order Functions (map, filter, reduce, sort)
-
-{:.q}
-> Q: Give the output of the following Javascript code and write the corresponding code
-in Python.
->
-> {% highlight javascript %}
-var teams = [
-  { name: "HataySpor", "wins": 3, "draws": 2, "losses": 1},
-  { name: "HataySporrr", "wins": 3, "draws": 2, "losses": 1},
-  { name: "Karabük", "wins": 4, "draws": 0, "losses": 1},
-  { name: "Muğlaspor", "wins": 7, "draws": 1, "losses": 0},
-  { name: "UlaGücü", "wins": 1, "draws": 3, "losses": 0},
-  { name: "Kötekli", "wins": 1, "draws": 7, "losses": 0},
-  { name: "Dalaman", "wins": 2, "draws": 0, "losses": 2}
-]
-teams.map(function(t) {
-   t.points = 2*t.wins+t.draws;
-   t.played=t.wins+t.draws+t.losses
-})
-teams
-  .filter(function(t) { return t.played >= 5;})
-  .sort(function (t1,t2) {
-    if (t1.points != t2.points) return t2.points - t1.points;
-    else if (t1.played != t2.played) return t1.played - t2.played;
-    else return t2.name.length - t1.name.length;
-  })
-  .forEach(function(t) {
-    t.flag = true;  // will this affect teams[4] output below?
-    console.log(t.name + ": " + t.points + "-" + t.played);
-  })
-console.log(teams[4]);
-{% endhighlight %}  
-
-{:.q}
-> Q: Give the output of the following Javascript code (i.e. result's final value):
->
-> {% highlight javascript %}
-var nums = [3,7,2,6,11,4,9,4,1,3]
-var result = nums.reduce(function(accumulated, nextValue) {
-     if (nextValue % 2 == 0) accumulated[0].push(nextValue);
-     else accumulated[1].push(nextValue);
-     return accumulated;
-  },
-  [ [], [] ]  // initial value for accumulated
-)
-console.log(result);
-{% endhighlight %}  
 
 ### That's all folks. See you at the midterm...
