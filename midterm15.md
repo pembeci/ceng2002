@@ -31,7 +31,7 @@ reduced to calculate the expression's value.
 
 {:.q}
 > Q: Write the value of `a` after each line and give an equivalent Python [conditional expression](https://docs.python.org/2.5/whatsnew/pep-308.html):
-> {% highlight javascript linenos=table %}
+> {% highlight javascript linenos %}
 var x=5, y=8, a;
 a = x>y ? "yes" : (y%2 == 0 ? "no" : "may be")
 a = x<y ? "yes" : (y%2 == 0 ? "no" : "may be")
@@ -40,7 +40,7 @@ a = x==y ? "yes" : (x%2 == 0 ? "no" : "may be")
 
 {:.q}
 > Q: Give the JS equivalent of the following Python code:
-> {% highlight python linenos=table %}
+> {% highlight python linenos %}
 a = 5 if x>y else (4 if x<y else 3)
 {% endhighlight %}
 
