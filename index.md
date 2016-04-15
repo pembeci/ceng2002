@@ -11,6 +11,7 @@ layout: default
 {:.q}
 > Q: Let's suppose that in Language A every operator is left associative but in Language B every operator is right associative. Moreover, in language A `+` has higher precedence than `-` but in language B the situtation is the opposite. For other operators the usual rules apply. For every expression below give their value both in languages A and B.
 >
+> {: .zot}
 > Expression | Language A | Language B
 -----------|:----------:|:----------:
 `10 - 5 + 3`   |            |
@@ -31,7 +32,7 @@ reduced to calculate the expression's value.
 
 {:.q}
 > Q: Write the value of `a` after each line and give an equivalent Python [conditional expression](https://docs.python.org/2.5/whatsnew/pep-308.html):
-> {% highlight javascript linenos=table %}
+> {% highlight javascript linenos %}
 var x=5, y=8, a;
 a = x>y ? "yes" : (y%2 == 0 ? "no" : "may be")
 a = x<y ? "yes" : (y%2 == 0 ? "no" : "may be")

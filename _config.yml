@@ -8,3 +8,8 @@ github_username:  pembeci
 
 # Build settings
 markdown: kramdown
+
+# code
+syntax-highlighting:
+  enabled : true
+  css: syntax.css
