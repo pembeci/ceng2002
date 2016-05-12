@@ -308,7 +308,7 @@ console.log("global", x, y, z)
 {:.q}
 > Q: Try to achieve the same output of the previous question by writing an equivalent code in Python. Note that, unlike Javascript, in Python global variables are not automatically accessable in local scopes. You need to use the `global` keyword to make them available.
 
-* Functions as first class values
+## Functions as first class values
 
   If functions are first class values in a PL you can do use them as other value types like integer.
   For instance:
@@ -342,7 +342,7 @@ for (i=0; i<funcs.length; i++) {
 }
 {% endhighlight %}
 
-* Closures
+## Closures
 
   Let's suppose that some function (let's call it outer) defines a function (inner)
   and then returns it. If the inner function references a local variable in outer function
@@ -373,7 +373,7 @@ f1();
 f2();
 {% endhighlight %}
 
-* Higher Order Functions (map, filter, reduce, sort)
+## Higher Order Functions (map, filter, reduce, sort)
 
 {:.q}
 > Q: Give the output of the following Javascript code and write the corresponding code
@@ -422,4 +422,4 @@ var result = nums.reduce(function(accumulated, nextValue) {
 console.log(result);
 {% endhighlight %}  
 
-### That's all folks. See you at the midterm...
+### That's all folks. See you at the Final exam ...
