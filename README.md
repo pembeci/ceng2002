@@ -1,5 +1,5 @@
 <img src="https://cdn2.iconfinder.com/data/icons/business-round-icons/500/advertising-64.png"/><br/>
-<b>Announcement:</b> You can learn your midterm grades from [this page](http://eng1.mu.edu.tr/~pembeci/grade_chart/?e=S16_2002mid). If you want to see your paper just come to my office.
+<b>Announcement:</b> You can learn your <b>final</b> grades from [this page](http://eng1.mu.edu.tr/~pembeci/grade_chart/?e=S16_2002final). If you want to see your paper come to my office on 20th of May (Friday) until 16:00. 
 
 # CENG 2002 - Programming Language Concepts 
 This is the sharing repo for CENG 2002 course offered in MSKU [Department of Computer Engineering](http://bilmuh.mu.edu.tr/).
