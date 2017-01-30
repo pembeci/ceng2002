@@ -1,5 +1,5 @@
 <img src="https://cdn2.iconfinder.com/data/icons/business-round-icons/500/advertising-64.png"/><br/>
-<b>Announcement:</b> You can learn your <b>overall</b> grades from [here](https://github.com/pembeci/ceng2002/raw/master/grades.pdf). The document contains information about how the grades are computed and how they are entered into the OBS system.
+<b>Announcement:</b> Example questions for your final exam are [ready](http://pembeci.github.io/ceng2002/). 
 
 # CENG 2002 - Programming Language Concepts 
 This is the sharing repo for CENG 2002 course offered in MSKU [Department of Computer Engineering](http://bilmuh.mu.edu.tr/).
